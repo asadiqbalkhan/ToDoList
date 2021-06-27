@@ -2,11 +2,12 @@
   "name": "ToDoListDApp",
   "version": "1.0.0",
   "description": "",
-  "main": "truffle-config.js",
+  "main": "truffle.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "dev-back": "nodemon server.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +15,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "@truffle/solidity-loader": "^0.1.43",
+    "@truffle/workflow-compile": "^3.2.14",
+    "express": "^4.17.1",
+    "json-loader": "^0.5.7",
+    "webpack": "^4.18.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "jquery": "^3.6.0",
+    "truffle-contract": "^4.0.31",
+    "webpack-cli": "^3.1.0"
   }
 }

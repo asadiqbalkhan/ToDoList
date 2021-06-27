@@ -15,12 +15,22 @@ contract ToDo{
 // create a dynamic array 
 Task[] tasks;
 
+event TaskCreated(
+    uint id, 
+    uint date,
+    string content, 
+    string author, 
+    bool done
+);
+
+
 // function to create a task
     function createTask(string memory _content, string memory _author) public {
         // tasks.length = first task added in the dynamic array which at creation should be 0
         // now || block.timestamp to get the date of the task created
         // upon creation set boolean to false as no task has been added prior to the execution
         tasks.push(Task(tasks.length, block.timestamp, _content, _author, false));
+        emit TaskCreated(tasks.length, block.timestamp, _content, _author, false);
 
     }
 
@@ -41,8 +51,20 @@ Task[] tasks;
         );
     }
 
+    function getTaskFixtures(uint _id) public view returns(
+        uint, 
+        uint,
+        string memory,
+        string memory,
+        bool
+    ){
+        return (0, block.timestamp, "Hello blockchain", "Asad", false);
+    }
+
     function getTasks() public view returns(Task[] memory){
         return tasks;
     }
+
+
     
 }
